@@ -242,3 +242,17 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# Extend LMS Settings with a custom field on update
+doc_events = {
+    "LMS Settings": {
+        "on_update": "custom_lms_extension.custom_methods.create_custom_fields"
+    }
+}
+
+# Override any existing methods if necessary
+override_whitelisted_methods = {
+    "lms.lms.doctype.some_doctype.some_method": "custom_lms_extension.custom_methods.custom_method"
+}
+
+# Include the custom JS file for dynamic payment handling
+app_include_js = "/assets/custom_lms_extension/js/custom_utils.js"
